@@ -8,5 +8,6 @@ namespace Library
 {
     internal interface Observer
     {
+        void Update();
     }
 }
