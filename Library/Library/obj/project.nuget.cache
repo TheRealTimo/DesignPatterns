@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SSZfiS3o5qHQFy7FOcy09/3q5+SJx5oEqmLX4Bz8ZEki4oVL9fz02rnukftil03mBjZ3XOx9VAim/juCaP+obw==",
+  "dgSpecHash": "VlqpRGH/PonXHAeTDcNus1nClcMoff3QNVousp9RZndR5pnJy1kzhFDNIVcbYW1EaRbSAf+fPLTb3yUucPXtGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\DesignPatterns\\Library\\Library\\Library.csproj",
+  "projectFilePath": "C:\\Users\\t\\Documents\\GitHub\\DesignPatterns\\Library\\Library\\Library.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Admin\\Desktop\\DesignPatterns\\Library\\Library\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
