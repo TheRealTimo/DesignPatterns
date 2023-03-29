@@ -38,5 +38,15 @@ namespace TestProject1
 
             Assert.IsTrue(book.IsAvailable());
         }
+
+        [TestMethod]
+        public void BookHasLateFee()
+        {
+            NovelFactory novelFactory = new NovelFactory();
+            Book book = novelFactory.CreateBook("Trouble's Just Begun", "Roy", "Thriller", "Kluitman", new DateTime());
+            LateFeeDecorator lateFeeDecorator = new LateFeeDecorator(book, 666);
+
+            Assert.AreEqual(lateFeeDecorator.lateFee, 666);
+        }        
     }
 }
