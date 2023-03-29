@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    internal class LibraryBook : Book
+    public class LibraryBook : Book
     {
         private string title;
         private string author;
@@ -74,12 +74,14 @@ namespace Library
             if (isBorrowed)
             {
                 isBorrowed = false;
+                NotifyObservers();
             }
             else
             {
                 Console.WriteLine("This book is not borrowed.");
             }
         }
+
 
         public void RegisterObserver(Observer observer)
         {
@@ -95,7 +97,7 @@ namespace Library
         {
             foreach (Observer observer in observers)
             {
-                observer.Update();
+                observer.Update(this);
             }
         }
     }

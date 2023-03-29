@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    internal class BorrowingPeriodExtensionDecorator : BookDecorator
+    public class BorrowingPeriodExtensionDecorator : BookDecorator
     {
         private int extentionDays;
         public BorrowingPeriodExtensionDecorator(Book book, int extentionDays) : base(book)

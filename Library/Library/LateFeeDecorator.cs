@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    internal class LateFeeDecorator : BookDecorator
+    public class LateFeeDecorator : BookDecorator
     {
         private double lateFee;
         public LateFeeDecorator(Book book, double lateFee) : base(book)

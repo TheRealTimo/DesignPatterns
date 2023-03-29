@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    internal abstract class BookDecorator : Book
+    public abstract class BookDecorator : Book
     {
         private Book book;
 

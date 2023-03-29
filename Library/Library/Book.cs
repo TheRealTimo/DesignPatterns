@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    internal interface Book
+    public interface Book
     {
         string GetTitle();
         string GetAuthor();
