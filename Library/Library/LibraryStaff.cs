@@ -8,7 +8,7 @@ using System;
 
 namespace Library
 {
-    internal class LibraryStaff : Observer
+    public class LibraryStaff : Observer
     {
         private string name;
 

@@ -8,7 +8,7 @@ using System;
 
 namespace Library
 {
-    internal class Student : Borrower, Observer
+    public class Student : Borrower, Observer
     {
         public Student(string id, string name) : base(id, name) { }
 

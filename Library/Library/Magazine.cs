@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    internal class Magazine : LibraryBook
+    public class Magazine : LibraryBook
     {
         private string issueNumber;
 

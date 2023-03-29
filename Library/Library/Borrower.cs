@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    internal abstract class Borrower
+    public abstract class Borrower
     {
         private string _name;
         private string _id;
