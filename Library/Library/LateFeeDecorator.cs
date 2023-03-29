@@ -8,7 +8,7 @@ namespace Library
 {
     public class LateFeeDecorator : BookDecorator
     {
-        private double lateFee;
+        public double lateFee;
         public LateFeeDecorator(Book book, double lateFee) : base(book)
         {
             this.lateFee = lateFee;
