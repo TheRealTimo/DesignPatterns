@@ -1,25 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace Library;
 
-using System;
-
-namespace Library
+public class LibraryStaff : Observer
 {
-    public class LibraryStaff : Observer
+    public LibraryStaff(string name)
     {
-        private string name;
+        Name = name;
+    }
 
-        public LibraryStaff(string name)
-        {
-            this.name = name;
-        }
+    public string Name { get; }
 
-        public void Update(Book book)
-        {
-            Console.WriteLine($"Library staff {name} has been notified that the book '{book.GetTitle()}' is now available.");
-        }
+    public void Update(Book book)
+    {
+        Console.WriteLine(
+            $"Library staff {Name} has been notified that the book '{book.GetTitle()}' is now available.");
     }
 }

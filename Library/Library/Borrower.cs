@@ -1,24 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace Library;
 
-namespace Library
+public abstract class Borrower : Observer
 {
-    public abstract class Borrower
+    public Borrower(string id, string name)
     {
-        private string _name;
-        private string _id;
-
-        public Borrower(string id, string name) {
-            this._name = name;
-            this._id = id;
-        }
-
-        public string Name { get { return _name; } }
-        public string Id { get { return _id;} }
-
-
+        Name = name;
+        Id = id;
     }
+
+    public string Id { get; }
+
+    public string Name { get; }
+
+    public abstract void Update(Book book);
 }
