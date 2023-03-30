@@ -1,14 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace Library;
 
-namespace Library
+public interface Observer
 {
-    internal interface Observer
-    {
-        void Update(Book book);
-    }
+    string Name { get; }
+    void Update(Book book);
 }
-

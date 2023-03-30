@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Library;
 
-namespace Library
+public class Magazine : LibraryBook
 {
-    internal class Magazine : LibraryBook
+    private readonly string issueNumber;
+
+    public Magazine(string title, string author, string genre, string publisher, DateTime publishedDate,
+        string issueNumber)
+        : base(title, author, genre, publisher, publishedDate)
     {
-        private string issueNumber;
+        this.issueNumber = issueNumber;
+    }
 
-        public Magazine(string title, string author, string genre, string publisher, DateTime publishedDate, string issueNumber)
-            : base(title, author, genre, publisher, publishedDate)
-        {
-            this.issueNumber = issueNumber;
-        }
-
-        public string GetIssueNumber()
-        {
-            return issueNumber;
-        }
+    public string GetIssueNumber()
+    {
+        return issueNumber;
     }
 }

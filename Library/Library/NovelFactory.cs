@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Library;
 
-namespace Library
+public class NovelFactory
 {
-    internal class NovelFactory
+    public Book CreateBook(string title, string author, string genre, string publisher, DateTime publishedDate)
     {
-        public Book CreateBook(string title, string author, string genre, string publisher, DateTime publishedDate)
-        {
-            return new LibraryBook(title, author, genre, publisher, publishedDate);
-        }
+        return new LibraryBook(title, author, genre, publisher, publishedDate);
     }
 }
