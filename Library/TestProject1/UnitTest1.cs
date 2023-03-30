@@ -9,8 +9,7 @@ public class UnitTest1
     public void TestBookCreation()
     {
         var factory = new NovelFactory();
-        var book = factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher",
-            new DateTime(2020, 1, 1));
+        var book = factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher", new DateTime(2020, 1, 1));
 
         Assert.AreEqual("Test Book", book.GetTitle());
         Assert.AreEqual("Test Author", book.GetAuthor());
@@ -23,8 +22,7 @@ public class UnitTest1
     public void TestBorrowingAndReturningBook()
     {
         var factory = new NovelFactory();
-        var book = (LibraryBook)factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher",
-            new DateTime(2020, 1, 1));
+        var book = (LibraryBook)factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher", new DateTime(2020, 1, 1));
 
         Assert.IsTrue(book.IsAvailable());
         book.BorrowBook();
@@ -37,9 +35,9 @@ public class UnitTest1
     public void TestObserverNotification()
     {
         var factory = new NovelFactory();
-        var book = (LibraryBook)factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher",
-            new DateTime(2020, 1, 1));
+        var book = (LibraryBook)factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher",new DateTime(2020, 1, 1));
         var staff = new LibraryStaff("Test Staff");
+
         book.RegisterObserver(staff);
         book.BorrowBook();
         book.ReturnBook(); // Staff should be notified when the book is returned
@@ -49,9 +47,9 @@ public class UnitTest1
     public void TestLateFeeDecorator()
     {
         var factory = new NovelFactory();
-        var book = factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher",
-            new DateTime(2020, 1, 1));
+        var book = factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher", new DateTime(2020, 1, 1));
         var lateFeeBook = new LateFeeDecorator(book, 10.0);
+
         lateFeeBook.ReturnBook(); // Late fee should be displayed
     }
 
@@ -59,9 +57,9 @@ public class UnitTest1
     public void TestBorrowingPeriodExtensionDecorator()
     {
         var factory = new NovelFactory();
-        var book = factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher",
-            new DateTime(2020, 1, 1));
+        var book = factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher", new DateTime(2020, 1, 1));
         var extendedBook = new BorrowingPeriodExtensionDecorator(book, 7);
+
         extendedBook.BorrowBook(); // Return date should be extended by 7 days
     }
 
@@ -69,8 +67,7 @@ public class UnitTest1
     public void TestMagazineCreation()
     {
         var factory = new MagazineFactory();
-        var magazine = factory.CreateBook("Test Magazine", "Test Editor", "Test Genre", "Test Publisher",
-            new DateTime(2020, 1, 1), "Issue 1");
+        var magazine = factory.CreateBook("Test Magazine", "Test Editor", "Test Genre", "Test Publisher", new DateTime(2020, 1, 1), "Issue 1");
 
         Assert.AreEqual("Test Magazine", magazine.GetTitle());
         Assert.AreEqual("Test Editor", magazine.GetAuthor());
@@ -80,6 +77,7 @@ public class UnitTest1
 
         // Cast the Book to Magazine to access GetIssueNumber()
         var castedMagazine = magazine as Magazine;
+
         Assert.IsNotNull(castedMagazine);
         Assert.AreEqual("Issue 1", castedMagazine.GetIssueNumber());
     }
@@ -88,9 +86,9 @@ public class UnitTest1
     public void TestConcreteStudentBorrowingAndReturningBook()
     {
         var factory = new NovelFactory();
-        var book = (LibraryBook)factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher",
-            new DateTime(2020, 1, 1));
+        var book = (LibraryBook)factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher", new DateTime(2020, 1, 1));
         var student = new Student("Test Student", "Test Student");
+
         book.RegisterObserver(student);
         book.BorrowBook(); // ConcreteStudent should be able to borrow the book
         Assert.IsFalse(book.IsAvailable());
@@ -102,9 +100,9 @@ public class UnitTest1
     public void TestUnregisterObserver()
     {
         var factory = new NovelFactory();
-        var book = (LibraryBook)factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher",
-            new DateTime(2020, 1, 1));
+        var book = (LibraryBook)factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher", new DateTime(2020, 1, 1));
         var staff = new LibraryStaff("Test Staff");
+
         book.RegisterObserver(staff);
         book.RemoveObserver(staff);
         book.BorrowBook();
@@ -115,10 +113,10 @@ public class UnitTest1
     public void TestMultipleObservers()
     {
         var factory = new NovelFactory();
-        var book = (LibraryBook)factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher",
-            new DateTime(2020, 1, 1));
+        var book = (LibraryBook)factory.CreateBook("Test Book", "Test Author", "Test Genre", "Test Publisher", new DateTime(2020, 1, 1));
         var staff1 = new LibraryStaff("Test Staff 1");
         var staff2 = new LibraryStaff("Test Staff 2");
+
         book.RegisterObserver(staff1);
         book.RegisterObserver(staff2);
         book.BorrowBook();

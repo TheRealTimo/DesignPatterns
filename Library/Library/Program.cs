@@ -8,8 +8,7 @@ internal class Program
 
         var book1 = (LibraryBook)factory.CreateBook("Book", "Fernando", "Fiction", "Big S", new DateTime(1925, 4, 10));
         var book2 = (LibraryBook)factory.CreateBook("Patterns", "Gerjan", "Fiction", "JB", new DateTime(1960, 7, 11));
-        var book3 = (LibraryBook)factory.CreateBook("Something", "Ro", "Science Fiction", "Flag",
-            new DateTime(1949, 6, 8));
+        var book3 = (LibraryBook)factory.CreateBook("Something", "Ro", "Science Fiction", "Flag", new DateTime(1949, 6, 8));
 
         Observer staff1 = new LibraryStaff("Roy");
         Observer staff2 = new LibraryStaff("John");
