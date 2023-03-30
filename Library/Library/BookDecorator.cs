@@ -2,7 +2,7 @@
 
 public abstract class BookDecorator : Book
 {
-    private readonly Book book;
+    private Book book;
 
     public BookDecorator(Book book)
     {

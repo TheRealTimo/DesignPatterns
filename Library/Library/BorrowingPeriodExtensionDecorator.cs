@@ -2,7 +2,7 @@
 
 public class BorrowingPeriodExtensionDecorator : BookDecorator
 {
-    private readonly int extentionDays;
+    private int extentionDays;
 
     public BorrowingPeriodExtensionDecorator(Book book, int extentionDays) : base(book)
     {

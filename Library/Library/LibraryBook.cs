@@ -5,7 +5,7 @@ public class LibraryBook : Book
     private readonly string author;
     private readonly string genre;
     private bool isBorrowed;
-    private readonly List<Observer> observers;
+    private List<Observer> observers;
     private readonly DateTime publishedDate;
     private readonly string publisher;
     private readonly string title;
