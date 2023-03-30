@@ -1,104 +1,90 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace Library;
 
-namespace Library
+public class LibraryBook : Book
 {
-    public class LibraryBook : Book
+    private readonly string author;
+    private readonly string genre;
+    private bool isBorrowed;
+    private readonly List<Observer> observers;
+    private readonly DateTime publishedDate;
+    private readonly string publisher;
+    private readonly string title;
+
+    public LibraryBook(string title, string author, string genre, string publisher, DateTime publishedDate)
     {
-        private string title;
-        private string author;
-        private string genre;
-        private string publisher;
-        private DateTime publishedDate;
-        private bool isBorrowed;
-        private List<Observer> observers;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.publisher = publisher;
+        this.publishedDate = publishedDate;
+        isBorrowed = false;
+        observers = new List<Observer>();
+    }
 
-        public LibraryBook(string title, string author, string genre, string publisher, DateTime publishedDate)
+    public string GetTitle()
+    {
+        return title;
+    }
+
+    public string GetAuthor()
+    {
+        return author;
+    }
+
+    public string GetGenre()
+    {
+        return genre;
+    }
+
+    public string GetPublisher()
+    {
+        return publisher;
+    }
+
+    public DateTime GetPublishedDate()
+    {
+        return publishedDate;
+    }
+
+    public bool IsAvailable()
+    {
+        return !isBorrowed;
+    }
+
+    public void BorrowBook()
+    {
+        if (!isBorrowed)
+            isBorrowed = true;
+        else
+            Console.WriteLine("This book is already borrowed.");
+    }
+
+    public void ReturnBook()
+    {
+        if (isBorrowed)
         {
-            this.title = title;
-            this.author = author;
-            this.genre = genre;
-            this.publisher = publisher;
-            this.publishedDate = publishedDate;
-            this.isBorrowed = false;
-            this.observers = new List<Observer>(); 
+            isBorrowed = false;
+            NotifyObservers();
         }
-
-        public string GetTitle()
+        else
         {
-            return title;
+            Console.WriteLine("This book is not borrowed.");
         }
-
-        public string GetAuthor()
-        {
-            return author;
-        }
-
-        public string GetGenre()
-        {
-            return genre;
-        }
-
-        public string GetPublisher()
-        {
-            return publisher;
-        }
-
-        public DateTime GetPublishedDate()
-        {
-            return publishedDate;
-        }
-
-        public bool IsAvailable()
-        {
-            return !isBorrowed;
-        }
-
-        public void BorrowBook()
-        {
-            if (!isBorrowed)
-            {
-                isBorrowed = true;
-            }
-            else
-            {
-                Console.WriteLine("This book is already borrowed.");
-            }
-        }
-
-        public void ReturnBook()
-        {
-            if (isBorrowed)
-            {
-                isBorrowed = false;
-                NotifyObservers();
-            }
-            else
-            {
-                Console.WriteLine("This book is not borrowed.");
-            }
-        }
+    }
 
 
-        public void RegisterObserver(Observer observer)
-        {
-            observers.Add(observer);
-        }
+    public void RegisterObserver(Observer observer)
+    {
+        observers.Add(observer);
+    }
 
-        public void RemoveObserver(Observer observer)
-        {
-            observers.Remove(observer);
-        }
+    public void RemoveObserver(Observer observer)
+    {
+        observers.Remove(observer);
+    }
 
-        public void NotifyObservers()
-        {
-            foreach (Observer observer in observers)
-            {
-                observer.Update(this);
-            }
-        }
+    public void NotifyObservers()
+    {
+        foreach (var observer in observers) observer.Update(this);
     }
 }
